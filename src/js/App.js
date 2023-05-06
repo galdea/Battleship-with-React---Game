@@ -1,13 +1,16 @@
 import React, { useState } from "react";
-import Board from "./component/Game/Board";
-import ShipList from "./component/Game/ShipList";
-import PlayerInfo from "./component/Game/PlayerInfo";
+import { ToastContainer, toast } from "react-toastify";
+import Board from "./components/Board";
+import ShipList from "./components/ShipList";
+import PlayerInfo from "./components/PlayerInfo";
 import {
   createEmptyBoard,
   initializeShips,
   updateBoard,
   checkGameOver,
 } from "./util/helpers";
+import "react-toastify/dist/ReactToastify.css";
+import "./App.css"
 
 const App = () => {
   const initialBoard = createEmptyBoard();

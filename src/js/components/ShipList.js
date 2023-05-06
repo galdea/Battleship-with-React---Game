@@ -1,5 +1,5 @@
 import React from 'react';
-import { getShipImage } from '../../util/helpers';
+import { getShipImage } from '../util/helpers';
 
 const ShipList = ({ ships }) => {
   return (

@@ -1,56 +1,67 @@
-import React, { useState } from 'react';
-import GameBoard from './component/Game/GameBoard';
-import GameStatus from './component/Game/GameStatus';
+import React, { useState } from "react";
+import Board from "./component/Game/Board";
+import ShipList from "./component/Game/ShipList";
+import PlayerInfo from "./component/Game/PlayerInfo";
+import {
+  createEmptyBoard,
+  initializeShips,
+  updateBoard,
+  checkGameOver,
+} from "./util/helpers";
 
-function App() {
-  const [isPlayerTurn, setIsPlayerTurn] = useState(true);
-  const [isGameOver, setIsGameOver] = useState(false);
-  const [didPlayerWin, setDidPlayerWin] = useState(false);
+const App = () => {
+  const initialBoard = createEmptyBoard();
+  const initialShips = initializeShips();
 
-  function handleSquareClick(square) {
-    // Ignore clicks if the game is over or it's not the player's turn
-    if (isGameOver || !isPlayerTurn) {
-      return;
+  const [state, setState] = useState({
+    boardData: initialBoard,
+    ships: initialShips,
+    playerData: [
+      {score: 0 , name: "Player 1"},
+      {score: 0 , name: "Player 2"},
+    ],
+  });
+
+  const handleCellClick = (row, col) => {
+    const { newBoard, updatedShips } = updateBoard(state.boardData, row, col, state.ships);
+    const cell = state.boardData[row][col];
+    const isGameOver = checkGameOver(updatedShips);
+  
+    if (cell === 'empty') {
+      toast.error('Miss!');
+    } else {
+      const shipIndex = updatedShips.findIndex((s) => s.name === cell);
+      if (shipIndex !== -1) {
+        const ship = updatedShips[shipIndex];
+        if (ship.hits === ship.size) {
+          toast.success(`Sunk ${ship.name}!`);
+        } else {
+          toast.info('Hit!');
+        }
+      }
     }
   
-    // Add logic to handle the player's turn
-    console.log(`Player clicked on ${square}`);
-    
-    // Set the game over and player win state if the player has won
-    setIsGameOver(true);
-    setDidPlayerWin(true);
-  }
-  
-
-  
+    if (isGameOver) {
+      toast.success('Game Over! All ships have been sunk.', {
+        onClose: () => {
+          alert('Game Over! All ships have been sunk.');
+        },
+      });
+    }
+    setState({ ...state, boardData: newBoard, ships: updatedShips });
+  };
   
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-12">
-          <h1>Battleship Game</h1>
-        </div>
+    <div className="app">
+      <ToastContainer />
+      <div className="game-info">
+        <PlayerInfo playerData={state.playerData} />
+        <ShipList ships={state.ships} />
       </div>
-      <div className="row">
-        <div className="col-md-6">
-          <GameBoard onClick={handleSquareClick} />
-        </div>
-        <div className="col-md-6">
-          <GameBoard />
-        </div>
-      </div>
-      <div className="row">
-        <div className="col-12">
-          <GameStatus
-            isPlayerTurn={isPlayerTurn}
-            isGameOver={isGameOver}
-            didPlayerWin={didPlayerWin}
-          />
-        </div>
-      </div>
+      <Board boardData={state.boardData} handleCellClick={handleCellClick} />
     </div>
   );
-}
+};
 
 export default App;

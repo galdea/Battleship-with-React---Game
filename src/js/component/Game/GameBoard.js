@@ -1,28 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Square from './Square';
 
-function GameBoard() {
-  const boardSize = 10;
-  const board = [];
+function GameBoard(props) {
+  const [squares, setSquares] = useState(Array(100).fill(null));
 
-  for (let i = 0; i < boardSize; i++) {
-    const row = [];
-
-    for (let j = 0; j < boardSize; j++) {
-      row.push(<Square key={`${i}${j}`} />);
-    }
-
-    board.push(<div className="row" key={i}>{row}</div>);
+  function handleClick(i) {
+    // Add logic to handle a square being clicked
+    const newSquares = [...squares];
+    newSquares[i] = 'miss';
+    setSquares(newSquares);
   }
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-12">
-          <h3>Player Board</h3>
-        </div>
-      </div>
-      {board}
+    <div className="game-board">
+      {squares.map((square, i) => (
+        <Square key={i} value={square} onClick={() => handleClick(i)} />
+      ))}
     </div>
   );
 }

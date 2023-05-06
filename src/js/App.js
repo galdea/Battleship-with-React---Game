@@ -7,8 +7,23 @@ function App() {
   const [isGameOver, setIsGameOver] = useState(false);
   const [didPlayerWin, setDidPlayerWin] = useState(false);
 
-  function handleSquareClick() {
+  function handleSquareClick(square) {
+    // Ignore clicks if the game is over or it's not the player's turn
+    if (isGameOver || !isPlayerTurn) {
+      return;
+    }
+  
+    // Add logic to handle the player's turn
+    console.log(`Player clicked on ${square}`);
+    
+    // Set the game over and player win state if the player has won
+    setIsGameOver(true);
+    setDidPlayerWin(true);
   }
+  
+
+  
+  
 
   return (
     <div className="container">

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import GameBoard from './GameBoard';
-import GameStatus from './GameStatus';
+import GameBoard from './component/Game/GameBoard';
+import GameStatus from './component/Game/GameStatus';
 
 function App() {
   const [isPlayerTurn, setIsPlayerTurn] = useState(true);

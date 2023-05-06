@@ -5,7 +5,7 @@
 		"node": "16.x"
 	},
 	"description": "",
-	"main": "index.js",
+	"main": "App.js",
 	"scripts": {
 		"start": "webpack-dev-server --mode development",
 		"build": "webpack --mode development",

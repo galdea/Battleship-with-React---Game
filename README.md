@@ -17,3 +17,5 @@ Los barcos varían en tamaño de 2 a 5 cuadrados. El objetivo del juego es hundi
 Para hacer una disparo de torpedo, haz clic en un cuadrado en el tablero de tu oponente. Si el cuadrado contiene un barco, se marcará como acertado. Si el cuadrado no contiene un barco, se marcará como fallado.
 
 El juego termina cuando se han hundido todos los barcos del enemigo.
+
+![image](https://user-images.githubusercontent.com/109429160/236652930-0c575808-ccaa-41b6-95da-0e4f5cba26a1.png)

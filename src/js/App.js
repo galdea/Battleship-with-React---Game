@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import { generateRandomLayout } from "./util/constants";
+import ShipList from "./components/ShipList";
 import Board from "./components/Board";
 import {
   createEmptyBoard,
@@ -60,6 +60,7 @@ const App = () => {
       <div className="game-info">
       </div>
       <Board boardData={state.boardData} handleCellClick={handleCellClick} />
+      <ShipList ships={state.ships} />
     </div>
   );
 };

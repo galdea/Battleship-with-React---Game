@@ -67,13 +67,13 @@ export const getShipImage = (shipName) => {
     case "carrier":
       return "🚢";
     case "battleship":
-      return "🛳️";
+      return "🛳️ ";
     case "cruiser":
-      return "🚣";
+      return "🛥️";
     case "submarine":
-      return "🐠";
+      return "🏴‍☠️";
     case "destroyer":
-      return "💥";
+      return "⛵";
     default:
       return "";
   }

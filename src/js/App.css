@@ -1,4 +1,4 @@
-/* Maritime colors palette */
+
 :root {
   --primary-color: #004953;
   --secondary-color: #F4A460;
@@ -146,7 +146,14 @@
   }
 }
 
-/* Mobile view */
+.ship-list {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  color: black;
+}
+
+
 @media (max-width: 767px) {
   .app {
     flex-direction: column;

@@ -10,7 +10,7 @@ const Cell = ({ row, col, cellData, onClick }) => {
     cellContent = '💦';
   } else if (cellData === 'hit') {
     cellClass += ' hit';
-    cellContent = '💣';
+    cellContent = '💥';
   } else {
     cellContent = cellData[1] === 'h' ? 'X' : '';
     if (cellData[1] === 's' && cellData[0] === '') {

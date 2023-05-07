@@ -1,9 +1,9 @@
-
 :root {
   --primary-color: #004953;
-  --secondary-color: #F4A460;
-  --accent-color: #ADD8E6;
-  --text-color: #FFF;
+  --secondary-color: #f46060;
+  --accent-color: #033f53;
+  --text-color: #3c559e;
+  background-color: #3c559e;
 }
 
 .app {
@@ -11,6 +11,25 @@
   flex-direction: column;
   align-items: center;
 }
+
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #001225;
+  text-shadow: 1px 1px #ddd;
+  margin-top: 20px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #1E90FF;
+  text-shadow: 1px 1px #ddd;
+  margin-bottom: 30px;
+}
+
 
 .game-info {
   display: flex;
@@ -22,6 +41,7 @@
   display: flex;
   flex-direction: column;
   border: 5px solid var(--secondary-color);
+  margin-bottom: 20px;
 }
 
 .board-row {
@@ -53,7 +73,7 @@
 .ship-list {
   display: flex;
   flex-direction: column;
-  margin-left: 20px;
+  align-items: center;
   color: var(--text-color);
 }
 
@@ -66,7 +86,7 @@
 .ship-item img {
   width: 50px;
   height: auto;
-  margin-right: 10px;
+  margin-right: 50px;
 }
 
 .hit-indicators {
@@ -74,8 +94,6 @@
 }
 
 .hit-indicator {
-  width: 10px;
-  height: 10px;
   border: 1px solid var(--primary-color);
   margin-right: 5px;
 }
@@ -84,40 +102,28 @@
   background-color: var(--secondary-color);
 }
 
-.player-info {
+
+.shiplist {
   display: flex;
-  flex-direction: row;
-  margin-right: 20px;
-  padding: 20px;
-  border-radius: 9px;
-  align-items: center;
   justify-content: center;
-  text-align: center;
-  color: var(--text-color);
-  background-color: var(--secondary-color);
-  font-size: 24px;
 }
 
-.player-1,
-.player-2 {
-  padding: 14px;
-  border-radius: 5px;
-  color: var(--text-color);
-  font-size: 18px;
-  margin-bottom: 10px;
+.ship-list {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
 }
 
-.player-1 {
-  background-color: var(--primary-color);
+.hit-indicators {
+  display: flex;
+  align-items: center;
 }
 
-.player-2 {
-  background-color: var(--accent-color);
-}
-
-.score {
-  font-weight: bold;
-  margin-bottom: 5px;
+.hit-indicators > div {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-right: 5px;
 }
 
 /* Desktop view */
@@ -152,7 +158,6 @@
   text-align: center;
   color: black;
 }
-
 
 @media (max-width: 767px) {
   .app {

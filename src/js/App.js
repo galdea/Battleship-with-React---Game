@@ -55,13 +55,19 @@ const App = () => {
   
 
   return (
+    <>
+    <div className="title">Battleship</div>
+    <div className="subtitle"v>Sink the Enemies ship, win the war</div>
     <div className="app">
       <ToastContainer />
       <div className="game-info">
       </div>
       <Board boardData={state.boardData} handleCellClick={handleCellClick} />
+      </div>
+      <div className="shiplist">
       <ShipList ships={state.ships} />
     </div>
+    </>
   );
 };
 

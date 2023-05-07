@@ -1,14 +1,28 @@
-import React from "react";
+import React from 'react';
 
 const Cell = ({ row, col, cellData, onClick }) => {
-  const handleClick = () => {
-    onClick(row, col);
-  };
+  let cellClass = 'cell';
+  let cellContent = '';
+  if (cellData === 'empty') {
+    cellClass += ' empty';
+  } else if (cellData === 'miss') {
+    cellClass += ' miss';
+    cellContent = '💦';
+  } else if (cellData === 'hit') {
+    cellClass += ' hit';
+    cellContent = '💣';
+  } else {
+    cellContent = cellData[1] === 'h' ? 'X' : '';
+    if (cellData[1] === 's' && cellData[0] === '') {
+      cellClass += ' ship';
+    } else if (cellData[1] === 'h') {
+      cellClass += ' hit-ship';
+    }
+  }
 
   return (
-    <div className={`cell ${cellData}`} onClick={handleClick}>
-      {cellData === "hit" && <img src="assets/Hit.png" alt="hit" />}
-      {cellData === "miss" && <img src="assets/Miss.png" alt="miss" />}
+    <div className={cellClass} onClick={() => onClick(row, col)}>
+      {cellContent}
     </div>
   );
 };

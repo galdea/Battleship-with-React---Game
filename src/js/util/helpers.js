@@ -1,5 +1,6 @@
 import { BOARD_SIZE, SHIP_DATA } from "./constants";
 
+
 export const createEmptyBoard = () => {
   const board = [];
   for (let row = 0; row < BOARD_SIZE; row++) {
@@ -52,8 +53,10 @@ export const updateBoard = (board, row, col, ships) => {
       newBoard[row][col] = "hit";
     }
   }
+
   return { newBoard, updatedShips };
 };
+
 
 export const checkGameOver = (ships) => {
   return ships.every((ship) => ship.hits === ship.size);
@@ -62,16 +65,17 @@ export const checkGameOver = (ships) => {
 export const getShipImage = (shipName) => {
   switch (shipName) {
     case "carrier":
-      return "Carrier_Shape.png";
+      return "🚢";
     case "battleship":
-      return "Battleship_shape.png";
+      return "🛳️";
     case "cruiser":
-      return "Cruiser_Shape.png";
+      return "🚣";
     case "submarine":
-      return "Submarine.png";
+      return "🐠";
     case "destroyer":
-      return "Destroyer_Shape.png";
+      return "💥";
     default:
       return "";
   }
 };
+

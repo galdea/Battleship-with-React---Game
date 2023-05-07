@@ -1,0 +1,164 @@
+/* Maritime colors palette */
+:root {
+  --primary-color: #004953;
+  --secondary-color: #F4A460;
+  --accent-color: #ADD8E6;
+  --text-color: #FFF;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-info {
+  display: flex;
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+.board {
+  display: flex;
+  flex-direction: column;
+  border: 5px solid var(--secondary-color);
+}
+
+.board-row {
+  display: flex;
+}
+
+.cell {
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--primary-color);
+  position: relative;
+  background-color: var(--accent-color);
+  cursor: pointer;
+}
+
+.cell.empty:hover {
+  background-color: var(--primary-color);
+}
+
+.cell.hit img,
+.cell.miss img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ship-list {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  color: var(--text-color);
+}
+
+.ship-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.ship-item img {
+  width: 50px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.hit-indicators {
+  display: flex;
+}
+
+.hit-indicator {
+  width: 10px;
+  height: 10px;
+  border: 1px solid var(--primary-color);
+  margin-right: 5px;
+}
+
+.hit-indicator.hit {
+  background-color: var(--secondary-color);
+}
+
+.player-info {
+  display: flex;
+  flex-direction: row;
+  margin-right: 20px;
+  padding: 20px;
+  border-radius: 9px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--text-color);
+  background-color: var(--secondary-color);
+  font-size: 24px;
+}
+
+.player-1,
+.player-2 {
+  padding: 14px;
+  border-radius: 5px;
+  color: var(--text-color);
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.player-1 {
+  background-color: var(--primary-color);
+}
+
+.player-2 {
+  background-color: var(--accent-color);
+}
+
+.score {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Desktop view */
+@media (min-width: 1024px) {
+  .app {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .game-info {
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+}
+
+/* Tablet view */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .app {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .game-info {
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+}
+
+/* Mobile view */
+@media (max-width: 767px) {
+  .app {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .game-info {
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+}
+
+hr {
+  border-top: 1px solid var(--primary-color);
+}
